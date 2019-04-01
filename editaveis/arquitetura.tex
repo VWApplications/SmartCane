@@ -1,0 +1,26 @@
+\chapter{Arquitetura do projeto}
+
+\begin{figure}[ht]
+	\centering
+    \includegraphics[keepaspectratio=true,scale=0.5]{figuras/arquitetura.eps}
+    \caption[Arquitetura do projeto.]{Arquitetura do projeto. Fonte: Autor}
+	\label{fig:arquitetura}
+\end{figure}
+
+\section{Restrições e Metas arquiteturais}
+
+\begin{itemize}
+    \item O projeto tem como software base o processamento de imagem para reconhecimento de faixa de pedestres, por conta disso, haverá um algoritmo interno;
+    \item O projeto abrange um sistema de feedback por áudio ao usuário;
+    \item O aplicativo será desenvolvido apenas na plataforma Android, devido ao prazo para cumprimento do projeto.
+    \item A aplicação estará estruturada na arquitetura Model View Controller (MVC) comumente aplicada por aplicações mobile.
+    \item O software de processamento de imagem será desenvolvido na linguagem Python 3.7 utilizando o framework OpenCV e estará associado a uma raspberry;
+    \item Haverá um servidor utilizando o framework django-rest para a comunicação via WiFi entre os dispositivos.
+\end{itemize}
+
+O sistema de identificação de faixa de pedestre será implementado para que em conjunto com o aplicativo e o fone de ouvido, informe ao usuário que foi identificada uma faixa de pedestre. Dessa forma, seguem as metas e restrições identificadas:
+
+\begin{itemize}
+    \item Será um sistema embarcado em uma raspberry para análise de vídeo, enviado pela câmera estrategicamente posicionada em um óculos.  A raspberry emitirá um comando para um microsserviço responsável pela interpretação e envio da mensagem em áudio para o fone de ouvido.
+    \item O aplicativo se comunicará via rede wireless com a raspberry, indicando a habilitação ou não de emissão de mensagem sonora.
+\end{itemize}
