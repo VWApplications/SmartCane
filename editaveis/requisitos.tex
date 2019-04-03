@@ -2,7 +2,7 @@
 
 \section{Requisitos do Sistema}
 
-O Smart White Cane será um dispositivo criado com a finalidade de auxiliar deficientes visuais a se guiarem por um caminho escolhido. Abaixo se encontram os requisitos gerais do sistema:
+O \textit{Smart Way} será um dispositivo criado com a finalidade de auxiliar deficientes visuais a se guiarem por um caminho escolhido. Abaixo se encontram os requisitos gerais do sistema:
 
 \begin{itemize}
 \item O dispositivo irá indicar os objetos a frente por meio de vibrações;
@@ -34,6 +34,14 @@ O Smart White Cane será um dispositivo criado com a finalidade de auxiliar defi
 \end{itemize}
 
 \subsection{Requisitos de energia}
+\begin{itemize}
+\item O SmartWay deve ter um sistema de alimentação robusto que tenha autonomia necessária para o uso diário do usuário; 
+\item O SmartWay deve um sistema de alimentação com baterias que possam ser recarregada rapidamente;
+\item O SmartWay deve ter a entrada de USB adaptado com sinalização em braille, para facilitar a conexão do carregador;
+\item O Sistema de alimentação da SmartWay deve ser leve e de dimensão coerente com o design da bengala, para facilitar a adaptação do usuário; 
+\item O SmartWay deve ter um aviso sonoro indicando as baterias estão descarregadas;
+
+\end{itemize}
 
 \subsection{Requisitos de software}
 
@@ -41,34 +49,41 @@ A solução de software se concentra de forma geral em dar feedbacks e avisos do
 
 \subsubsection{Reconhecimento de faixa de pedestre}
 
-O Reconhecimento de faixa de pedestre será realizado com o uso de uma câmera acoplada a um óculos. Essa câmera vai capturar a imagem da faixa de pedestre, que será interpretada por um algoritmo de software.
+O Reconhecimento de faixa de pedestre será realizado com o uso de uma câmera acoplada a um óculos. Essa câmera vai capturar os frames de vídeo da faixa de pedestre, que será interpretada por um algoritmo de software.
 
-Outra alternativa é que exista um QR Code próximo a uma faixa de pedestre e dessa forma aconteça a captura e interpretação da sinalização. Uma mensagem em áudio será emitida pelo fone de ouvido para indicar a faixa encontrada.
+Além da faixa de pedestre, haverá a instrução de orientação para prosseguir em segurança. Essa instrução consiste em:
+\begin{enumerate}
+    \item Esquerda: Usuário deverá se deslocar para a esquerda para que possa atravessar em cima da faixa;
+    \item Direita: Usuário deverá se deslocar para a direita para que possa atravessar em cima da faixa;
+    \item Prosseguimento: Intrução positiva de que pode seguir atravessando a pista.
+\end{enumerate}
 
 \subsubsection{Feedback com emissão de mensagem sonora}
 
-O Smart Cane terá um sistema auditivo, um fone de ouvido ou auto falante, que emitirá mensagens sonoras como feedback do ambiente em que o usuário se encontra. As mensagens sonoras corresponderão à existência de objetos próximos e à frente da bengala e existência de uma faixa de pedestre próxima dele.
+O \textit{Smart Way} terá um sistema auditivo, um fone de ouvido ou auto falante, que emitirá mensagens sonoras como feedback do ambiente em que o usuário se encontra. As mensagens sonoras corresponderão à existência de objetos próximos e à frente da bengala e existência de uma faixa de pedestre próxima dele.
 
-O Smart Cane não emitirá mensagem dizendo qual o tipo do objeto está à frente, se é uma casa, carrro, degrau, ou outros. Apenas avisará se existe algum obstáculo. Também não detectará a existência ou não de buracos no chão. O movimento mecânico do usuário com  bengala, de maneira comum, será a maneira de identificar a existência de um buraco ou depressão próximos ao usuário.
+O \textit{Smart Way} não emitirá mensagem dizendo qual o tipo do objeto está à frente, se é uma casa, carro, degrau, ou outros. Apenas avisará se existe algum obstáculo. Também não detectará a existência ou não de buracos no chão. O movimento mecânico do usuário com  bengala, de maneira comum, será a maneira de identificar a existência de um buraco ou depressão próximos ao usuário.
 
-O Smart Cane também irá notificar quando a bateria estiver descarregada.
+O \textit{Smart Way} também irá notificar quando a bateria estiver descarregada.
+
+A API pública para serviços do \textit{Smart Way} deverá ser disponibilizada por apenas para desenvolvedores credenciados que possuem um token no protocolo JWT.
 
 \subsubsection{Aplicativo que controla}
 
-O Smart Cane será integrado a um aplicativo na plataforma Android. O aplicativo Smart Cane será um gerenciador de acessibilidade com a bengala e sistema auditivo.
+O \textit{Smart Way} será integrado a um aplicativo na plataforma Android. O aplicativo \textit{Smart Way} será um gerenciador de acessibilidade com a bengala e sistema auditivo.
 
 Dessa forma, o usuário será capaz de escolher se deseja ter feedback sonoro ou vibratório (pela pulseira) além de outras funcionalidades.
 
 \section{Requisitos não funcionais}
 
 \begin{itemize}
-    \item \textbf{Usabilidade}: O sistema deve ser adaptado para que usuários com deficiência visual possa utilizá-lo da melhor forma possível.
+    \item \textbf{Usabilidade}: O sistema deve ser intuitivo e adaptado para que usuários com deficiência visual possa utilizá-lo da melhor forma possível e a qualidade do acabamento deve ser boa, robusta e ter durabilidade.
     \item \textbf{Manutenibilidade}: O sistema deve seguir as boas práticas utilizadas para desenvolvimento de software.
     \item \textbf{Confiabilidade}: O sistema deve ser testado antes de ir para as mãos do cliente.
-    \item \textbf{Desempenho}: O sistema deve ser rápido suficiente para suprir as necessidades do cliente.
+    \item \textbf{Desempenho}: O sistema deve ser rápido suficiente para suprir as necessidades do cliente. Não devendo haver tempo de resposta de avisos superior a 1,5 segundos.
     \item \textbf{Portabilidade}: O sistema deve ter um container único de instalação para desenvolvimento e produção.
-    \item \textbf{Reusabilidade}: Os recursos do software poderá ser acessado via API pública.
-    \item \textbf{Segurança}: O sistema deve ser seguro o suficiente para que o cliente não adquira informações que possa prejudicá-lo.
+    \item \textbf{Reusabilidade}: Os recursos do software poderão ser acessado via API pública.
+    \item \textbf{Segurança}: O sistema deve ser seguro o suficiente para que o cliente não adquira informações equivocadas;
 \end{itemize}
 
 \section{Premissas e restrições}
@@ -76,5 +91,5 @@ Dessa forma, o usuário será capaz de escolher se deseja ter feedback sonoro ou
 \begin{itemize}
     \item A faixa de pedestre não deverá ter muitas pessoas transitando sobre ela;
     \item Para a detecção da faixa por imagem, deverá ser em local iluminado;
-    \item Para detecção do QR Code, o mesmo deverá estar num local com iluminação suficiente para o reconhecimento;
+    \item A qualidade da imagem deverá ser suficiente para que haja uma melhor detecção;
 \end{itemize}
